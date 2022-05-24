@@ -49,3 +49,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
+
+#define TAPPING_TERM 200
+// layer toggle
+#define TAPPING_TOGGLE 2
+
+// sane homerow mods
+#define IGNORE_MOD_TAP_INTERRUPT
