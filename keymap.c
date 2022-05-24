@@ -19,14 +19,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
+// homerow mods
+#define HM_A LGUI_T(KC_A)
+#define HM_S LALT_T(KC_S)
+#define HM_H LCTL_T(KC_H)
+#define HM_T LSFT_T(KC_T)
+#define HM_N RSFT_T(KC_N)
+#define HM_E RCTL_T(KC_E)
+#define HM_O RALT_T(KC_O)
+#define HM_I RGUI_T(KC_I)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_ESC,    KC_Q,    KC_D,    KC_R,    KC_W,     KC_B,                         KC_J,    KC_F,     KC_U,    KC_P,    KC_QUOT,  KC_DEL,
+       KC_ESC,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,                         KC_J,    KC_F,    KC_U,   KC_P,  KC_QUOT,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_TAB,    LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_H), LSFT_T(KC_T), KC_G,    KC_Y,    RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_O), RGUI_T(KC_I), KC_ENT,
+       KC_TAB,    HM_A,    HM_S,    HM_H,    HM_T,    KC_G,                         KC_Y,    HM_N,    HM_E,    HM_O,    HM_I,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_CAPS,    KC_Z,    KC_X,    KC_M,    KC_C,     KC_V,                         KC_K,    KC_L,     KC_COMM, KC_DOT,  KC_SLSH,  KC_APP,
+      KC_CAPS,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM, KC_DOT,  KC_SLSH,  KC_APP,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           TT(2),   TT(1),  KC_ENT,     KC_SPC,   TT(3), KC_BSPC
                                       //`--------------------------'  `--------------------------'
@@ -35,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     _______, KC_TILD, KC_HASH, KC_ASTR, KC_LBRC, KC_RBRC,                   KC_BSLS, KC_EXLM, KC_GRV,  KC_DQT,  _______, _______,
+     _______, KC_TILD, KC_HASH, KC_ASTR, KC_LBRC, KC_RBRC,                       KC_BSLS, KC_EXLM, KC_GRV,  KC_DQT,  _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      _______, KC_DLR,  KC_PIPE, KC_EQL,  KC_LPRN, KC_RPRN,                      KC_DOT,  KC_COLN, KC_MINS, KC_UNDS, KC_PLUS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
