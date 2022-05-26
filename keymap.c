@@ -82,10 +82,12 @@ _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PERC,                      KC_AS
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+
   if (!is_keyboard_master()) {
     return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
   }
-  return rotation;
+  // return rotation;
+  return OLED_ROTATION_270;
 }
 
 #define L_BASE 0
@@ -94,22 +96,21 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_ADJUST 8
 
 void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
     switch (layer_state) {
         case L_BASE:
-            oled_write_ln_P(PSTR("Workman"), false);
+            oled_write_P(PSTR("Work\n  man"), false);
             break;
         case L_LOWER:
-            oled_write_ln_P(PSTR("Symbol"), false);
+            oled_write_ln_P(PSTR(" Sym\n bol"), false);
             break;
         case L_RAISE:
-            oled_write_ln_P(PSTR("Number"), false);
+            oled_write_ln_P(PSTR(" Num\n pad"), false);
             break;
         case L_ADJUST:
         case L_ADJUST|L_LOWER:
         case L_ADJUST|L_RAISE:
         case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Function"), false);
+            oled_write_ln_P(PSTR("Func\n tion"), false);
             break;
     }
 }
@@ -133,10 +134,12 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
     name = code_to_name[keycode];
   }
 
+  uint16_t wpm = get_current_wpm();
+
   // update keylog
-  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
+  snprintf(keylog_str, sizeof(keylog_str), "\n %dx%d\n k%2d\n  %c\n\n %d\n WPM",
            record->event.key.row, record->event.key.col,
-           keycode, name);
+           keycode, name, wpm);
 }
 
 void oled_render_keylog(void) {
