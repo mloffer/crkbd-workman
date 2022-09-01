@@ -48,7 +48,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
+//#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
+#define OLED_FONT_H "myfont.c"
 
 #define TAPPING_TERM 200
 // layer toggle
@@ -107,13 +108,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
 #    define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
+//#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
+//#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS

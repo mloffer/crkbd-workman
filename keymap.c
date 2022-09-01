@@ -19,6 +19,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
+// tapdance
+enum {
+    TD_CAPS
+};
+
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+        // Tap once for caps word, twice for caps Lock
+        [TD_CAPS] = ACTION_TAP_DANCE_DOUBLE(CAPSWRD, KC_CAPS),
+};
+
 // homerow mods
 #define HM_A LGUI_T(KC_A)
 #define HM_S LALT_T(KC_S)
@@ -28,7 +39,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HM_E RCTL_T(KC_E)
 #define HM_O RALT_T(KC_O)
 #define HM_I RGUI_T(KC_I)
-#define 
+#define MY_CAPS TD(TD_CAPS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -37,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    HM_A,    HM_S,    HM_H,    HM_T,    KC_G,                         KC_Y,    HM_N,    HM_E,    HM_O,    HM_I,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CAPSWRD,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM, KC_DOT,  KC_SLSH,  KC_APP,
+      MY_CAPS,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,                         KC_K,    KC_L, KC_COMM, KC_DOT,  KC_SLSH,  KC_APP,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           TT(2),   TT(1),  KC_ENT,     KC_SPC,   TT(3), KC_BSPC
                                       //`--------------------------'  `--------------------------'
@@ -74,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_MPLY,                      KC_MUTE, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     QK_BOOT ,   KC_F1,   KC_F2,   KC_F3,   KC_F4, KC_MPRV,                      KC_VOLD, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, XXXXXXX,
+      QK_BOOT,   KC_F1,   KC_F2,   KC_F3,   KC_F4, KC_MPRV,                      KC_VOLD, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
